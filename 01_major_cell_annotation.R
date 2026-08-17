@@ -10,7 +10,7 @@ library(ggplot2)
 # Major cell-type annotation
 load("scdata_preanno.RData")
 
-features1 <- c("Krt8","Krt18", "Krt14",  # Epithelial cells
+features1 <- c("Krt8","Krt18", "Krt19",  # Epithelial cells
                "Pecam1", "Cldn5", "Vwf", # Endothelial cells
                "Col1a1","Col1a2", "Dcn", # Fibroblasts
                "Cd79a","Ms4a1","Mzb1",   # B cells
