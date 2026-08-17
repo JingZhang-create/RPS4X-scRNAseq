@@ -88,7 +88,7 @@ table(scdata$celltype)
 scdata$celltype <- factor(scdata$celltype,levels = c("DC","Macrophage", "Granulocytes","NK", "B cell","T cell",
                                                      "CAF","Endothelial cell",  "Epithelial cell"))
 
-features1 <- c("Krt8","Krt18","Krt14",  # epithelial cells
+features1 <- c("Krt8","Krt18","Krt19",  # epithelial cells
                "Pecam1", "Cldn5", "Vwf", # endothelial cells
                "Col1a1", "Col1a2","Dcn", # fibroblasts
                "Cd3d","Cd4", "Cd8a",# t cells
