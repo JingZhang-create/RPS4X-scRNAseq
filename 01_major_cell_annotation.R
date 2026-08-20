@@ -10,15 +10,15 @@ library(ggplot2)
 # Major cell-type annotation
 load("scdata_preanno.RData")
 
-features1 <- c("Krt8","Krt18", "Krt19",  # Epithelial cells
-               "Pecam1", "Cldn5", "Vwf", # Endothelial cells
-               "Col1a1","Col1a2", "Dcn", # Fibroblasts
-               "Cd79a","Ms4a1","Mzb1",   # B cells
-               "Cd3d","Cd4", "Cd8a",     # T cells
-               "Ncr1","Eomes","Il2rb",   # NK cells
-               "S100a8", "S100a9",       # Granulocytes
-               "Apoe","Cd68", "Csf1r", "Cd86","Mrc1","Arg1", # Macrophage
-               "Clec10a", "Clec9a"  # Dendritic cells
+features1 <- c("Krt8","Krt18","Krt19",  # epithelial cells
+               "Pecam1", "Cdh5", "Vwf", # endothelial cells
+               "Col1a1", "Col1a2","Dcn", # fibroblasts
+               "Cd3d","Cd4", "Cd8a",# t cells
+               "Ly6d","Ighm","Igkc","Iglc3", # b_cells
+               "Ncr1","Eomes","Nkg7", #NK
+               "S100a8", "S100a9", # Granulocytes
+               "Lyz2","Apoe","Cd68", "Csf1r",  # tam-like
+               "Cd83","Ciita","Itgax","H2-Aa" # dc
 )
 
 
@@ -46,7 +46,7 @@ new.cluster.ids <- c(
   "Other Tcell",       # Cluster 15
   "CD8 Tcell",         # Cluster 16
   "CD8 Tcell",         # Cluster 17
-  "CAF",               # Cluster 18
+  "Fibroblasts",       # Cluster 18
   "Epithelial cell",   # Cluster 19
   "DC",                # Cluster 20
   "NK",                # Cluster 21
@@ -62,7 +62,7 @@ DimPlot(scdata, reduction = "umap", label = F, label.size=3,pt.size = .05)+ them
 
 # Cell-type abundance
 scdata$celltype <- scdata@active.ident
-scdata$celltype <- factor(scdata$celltype,levels = c("Epithelial cell","Endothelial cell","CAF","CD4 Tcell","CD8 Tcell","Other Tcell", "B cell","Granulocytes","Macrophage","NK","DC"))
+scdata$celltype <- factor(scdata$celltype,levels = c("Epithelial cell","Endothelial cell","Fibroblasts","CD4 Tcell","CD8 Tcell","Other Tcell", "B cell","Granulocytes","Macrophage","NK","DC"))
 scdata@active.ident <- scdata$celltype
 
 celltype_counts <- table(scdata$group, scdata$celltype)
@@ -86,17 +86,17 @@ scdata$celltype[
 ] <- "T cell"
 table(scdata$celltype)
 scdata$celltype <- factor(scdata$celltype,levels = c("DC","Macrophage", "Granulocytes","NK", "B cell","T cell",
-                                                     "CAF","Endothelial cell",  "Epithelial cell"))
+                                                     "Fibroblasts","Endothelial cell",  "Epithelial cell"))
 
 features1 <- c("Krt8","Krt18","Krt19",  # epithelial cells
-               "Pecam1", "Cldn5", "Vwf", # endothelial cells
+               "Pecam1", "Cdh5", "Vwf", # endothelial cells
                "Col1a1", "Col1a2","Dcn", # fibroblasts
                "Cd3d","Cd4", "Cd8a",# t cells
-               "Cd79a","Ms4a1","Mzb1",# b_cells
-               "Ncr1","Eomes","Il2rb", #NK
+               "Ly6d","Ighm","Igkc","Iglc3", # b_cells
+               "Ncr1","Eomes","Nkg7", #NK
                "S100a8", "S100a9", # Granulocytes
-               "Apoe","Cd68", "Csf1r",  # tam-like
-               "Clec10a", "Clec9a"  # dc
+               "Lyz2","Apoe","Cd68", "Csf1r",  # tam-like
+               "Cd83","Ciita","Itgax","H2-Aa" # dc
 )
 
 
