@@ -20,7 +20,7 @@ Raw scRNA-seq data were processed using the publicly accessible **OmicStudio clo
 
 | Script | Description |
 |---|---|
-| `01_major_celltype_annotation.R` | Major cell-type annotation based on canonical gene markers |
+| `01_major_celltype_annotation.R` | Major cell-type annotation based on gene markers |
 | `02_CD45pos_immune_subclustering.R` | Reclustering of CD45-positive immune cells |
 | `03_downstream_analysis.R` | Visualization of selected gene expression in epithelial cells and average-expression profiling of immune-cell clusters |
 
