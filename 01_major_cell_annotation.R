@@ -2,7 +2,7 @@
 # Major_cell_annotation
 # ==============================================================================
 
-setwd("./2sample")
+setwd("./data")
 library(Seurat)
 library(dplyr)
 library(ggplot2)
